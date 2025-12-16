@@ -92,3 +92,4 @@ credentials.json
 *.db
 
 # End of .gitignore
+"airflow/*.db*" 
