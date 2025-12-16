@@ -1,0 +1,94 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+.venv/
+env/
+env.bak/
+.Python
+
+# Byte-compiled / package artifacts
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Tests / tooling
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.mypy_cache/
+
+# --- IDEs / editors ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# --- OS files ---
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Logs ---
+logs/
+*.log
+
+# --- Airflow ---
+# Keep DAGs under version control only if they don't contain secrets.
+airflow/airflow.cfg
+airflow/*password*.json
+airflow/simple_auth_manager_passwords.json.generated
+airflow/logs/
+airflow/.env
+
+# --- Docker / Compose ---
+docker-compose.override.yml
+docker-compose.*.env
+*.env
+.env.*
+Dockerfile.*
+
+# --- dbt ---
+# Ignore compiled artifacts and local profiles
+paralex_project/target/
+paralex_project/run/
+paralex_project/compiled/
+.parquet
+# dbt local profile (usually located in ~/.dbt/profiles.yml)
+profiles.yml
+.dbt/
+
+# --- Data / large files ---
+# Many dataset files (CSV, Parquet) are large and usually should not be in git.
+# Remove these patterns if you intend to track datasets in this repo or use Git LFS.
+*.csv
+*.tsv
+*.parquet
+paralex-data/
+paralex-languages/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+*.ipynb
+
+# --- Keys / credentials ---
+*.pem
+*.key
+*.crt
+*.p12
+credentials.json
+*.pfx
+
+# --- Misc ---
+*.sqlite3
+*.db
+
+# End of .gitignore

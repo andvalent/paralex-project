@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: paralex_raw    # A nickname we give this group of tables
+    database: paralex    # The actual DB name in Postgres
+    schema: public       # The schema where Airflow put the data
+    tables:
+      - name: french
+      - name: italian
+      - name: portuguese
+      - name: spanish
+      - name: romanian
