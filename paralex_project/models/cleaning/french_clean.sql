@@ -2,18 +2,20 @@
 
 with base as (
     select
-        form_id,
-        lexeme,
+        frequency_per_million,
+        frequency,
         cell,
         phon_form,
-        mood,
+        orth_form,
+        overabundance_tag,
+        mode,
         tense,
         person,
         number,
-        verbform,
-        form,
-        gender
-    from {{ source('paralex_raw', 'romanian') }}
+        form_id,
+        gender,
+        lexeme
+    from {{ source('paralex_raw', 'french_processed') }}
 ),
 
 ordered as (
@@ -32,22 +34,23 @@ ordered as (
 )
 
 select
-    form_id,
-    lexeme,
+    frequency_per_million,
+    frequency,
     cell,
     phon_form,
-    mood,
+    orth_form,
+    overabundance_tag,
+    mode,
     tense,
     person,
     number,
-    verbform,
-    form,
-    gender
+    form_id,
+    gender,
+    lexeme
 from ordered
 order by
-    lexeme,
-    mood,
-    tense,
-    number_order,
-    person_order
-    
+    lexeme,          
+    mode,            
+    tense,          
+    number_order,   
+    person_order     

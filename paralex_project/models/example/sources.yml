@@ -5,8 +5,8 @@ sources:
     database: paralex    # The actual DB name in Postgres
     schema: public       # The schema where Airflow put the data
     tables:
-      - name: french
-      - name: italian
-      - name: portuguese
-      - name: spanish
-      - name: romanian
+      - name: french_processed
+      - name: italian_processed
+      - name: portuguese_processed
+      - name: spanish_processed
+      - name: romanian_processed

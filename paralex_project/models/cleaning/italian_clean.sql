@@ -12,7 +12,7 @@ with base as (
         gender,
         mood,
         person
-    from {{ source('paralex_raw', 'italian') }}
+    from {{ source('paralex_raw', 'italian_processed') }}
 ),
 
 ordered as (

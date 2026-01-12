@@ -5,6 +5,8 @@ services:
     build: .
     volumes:
       - ./airflow:/opt/airflow
+      # FIX: Mount the dbt project folder into the container
+      - ./paralex_project:/opt/airflow/paralex_project
     ports:
       - "8080:8080"
     command: airflow standalone
@@ -21,7 +23,6 @@ services:
     ports:
       - "5433:5432" 
     volumes:
-      # Persist data so it doesn't vanish on restart
       - postgres_db_volume:/var/lib/postgresql/data
 
 volumes:

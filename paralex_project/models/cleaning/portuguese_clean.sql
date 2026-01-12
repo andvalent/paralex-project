@@ -14,7 +14,7 @@ with base as (
         valency,
         gender,
         number                                  -- existing number column (keep)
-    from {{ source('paralex_raw', 'portuguese') }}
+    from {{ source('paralex_raw', 'portuguese_processed') }}
 ),
 
 split_person_number as (

@@ -14,7 +14,7 @@ with base as (
         lexical,
         verbform,
         gender
-    from {{ source('paralex_raw', 'spanish') }}
+    from {{ source('paralex_raw', 'spanish_processed') }}
 ),
 
 ordered as (
