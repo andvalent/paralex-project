@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: paralex_raw    # This matches the {{ source('paralex_raw', ...) }} in your models
+    database: paralex    # Your Postgres DB name
+    schema: public       # The schema where Airflow ingested the data
+    tables:
+      - name: french_processed
+      - name: italian_processed
+      - name: portuguese_processed
+      - name: spanish_processed
+      - name: romanian_processed

@@ -4,17 +4,26 @@ with clean_data as (
     select * from {{ ref('portuguese_clean') }} -- This creates the dependency
 )
 
-select * from clean_data
+SELECT *
+FROM clean_data
 WHERE (
-   /* 1. Indicative */
-   (mood = 'indicative' AND (tense IN ('present', 'past', 'future') OR aspect = 'imperfective'))
-   OR 
-   /* 2. Subjunctive */
-   (mood = 'subjunctive' AND (tense = 'present' OR aspect = 'imperfective'))
-   OR 
-   /* 3. Standalone Moods */
-   (mood IN ('conditional', 'imperative'))
-   OR 
-   /* 4. Non-finite Forms */
-   (verbform IN ('infinitive', 'gerund'))
+    /* 1. Indicative Mood */
+    (mood = 'indicative' AND (
+        tense = 'present'                             -- Present Indicative
+        OR (tense = 'past' AND aspect = 'imperfective') -- Imperfect Indicative
+        OR (tense = 'past' AND aspect = 'perfective')  -- Preterite Indicative
+        OR tense = 'future'                            -- Future Indicative
+    ))
+    OR
+    /* 2. Subjunctive Mood */
+    (mood = 'subjunctive' AND (
+        tense = 'present'                             -- Present Subjunctive
+        OR tense = 'past'                             -- Imperfect Subjunctive
+    ))
+    OR
+    /* 3. Independent Moods */
+    mood = 'conditional'                              -- Conditional
+    OR mood = 'imperative'                            -- Imperative
+    OR verbform = 'infinitive'                        -- Infinitive
+    OR verbform = 'gerund'                            -- Gerund
 )
